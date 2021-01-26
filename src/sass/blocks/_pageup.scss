@@ -1,0 +1,20 @@
+.pageup {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575px) {
+    .pageup {
+        bottom: 20px;
+        right: 20px;
+        widows: 30px;
+        height: 30px;
+    }
+}
