@@ -18,6 +18,15 @@ $(document).ready(function(){
         ]
     });
 
+    $('.reviews__inner').slick({
+        slidesToShow: 1,
+        infinite: true,
+        speed: 1000,
+        centerMode: true,
+        prevArrow: '<button type="button" class="slide-prev"><img src="icons/left.png"></button>',
+        nextArrow: '<button type="button" class="slide-next"><img src="icons/right.png"></button>',
+    });
+
     $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
         $(this)
           .addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
@@ -43,6 +52,9 @@ $(document).ready(function(){
         $('.overlay, #consultation').fadeIn('slow');
     });
     $('.modal__close').on('click', function() {
+        $('.overlay, #consultation, #order, #thanks').fadeOut('slow');
+    });
+    $('.overlay').on('click', function () {
         $('.overlay, #consultation, #order, #thanks').fadeOut('slow');
     });
     // $('.button_mini').on('click', function() {
