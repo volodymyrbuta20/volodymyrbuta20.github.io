@@ -4,6 +4,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
     $(document).ready(function() {
 
+        $('.hamburger').click(function () {
+            $('.hamburger, .menu').toggleClass('active');
+        });
+
         $('.testimonials__carousel').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -31,28 +35,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 $('#back-top').fadeOut(500);
             }
         });
-
-        const left = document.querySelectorAll('.courses__link_left'),
-            right = document.querySelectorAll('.courses__link_right'),
-            text = document.querySelectorAll('.features__descr');
-
-        function addAnimationByScroll () {
-            if (window.pageYOffset + document.documentElement.clientHeight > 1600) {
-                left.forEach(item => {
-                    item.classList.add('animationLeft');
-                });
-
-                right.forEach(item => {
-                    item.classList.add('animationRight');
-                });
-            } if (window.pageYOffset + document.documentElement.clientHeight > 2700) {
-                text.forEach(item => {
-                    item.classList.add('fadeIn');
-                });
-            }
-        }
-
-        window.addEventListener('scroll', addAnimationByScroll);
 
         $(window).scroll(function() {
             if ($(this).scrollTop() > 800) {
@@ -89,6 +71,7 @@ window.addEventListener('DOMContentLoaded', () => {
         $('.menu a').on('click', function () {
             let href = $(this).attr("href");
 
+            $('.menu, .hamburger').removeClass('active');
             $("html, body").animate({scrollTop: $(href).offset().top},
             {
                 duration: 330,
@@ -96,6 +79,8 @@ window.addEventListener('DOMContentLoaded', () => {
             });
             return false;
         });
+
+        new WOW().init();
     });
 });
 
