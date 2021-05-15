@@ -60,11 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     burger.forEach(item => {
         item.addEventListener('click', (e) => {
-            if (item === e.target) {
-                item.classList.toggle('active');
-                menu.classList.toggle('show');
-                backdrop.style.display = 'block';
-            }
+            item.classList.toggle('active');
+            menu.classList.toggle('show');
+            backdrop.style.display = 'block';
         });
     });
 
