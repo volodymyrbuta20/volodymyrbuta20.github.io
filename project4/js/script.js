@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -43,7 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const burger = document.querySelectorAll('.hamburger');
     const menu = document.querySelector('.menu');
-    const menuAbout = document.querySelector('.menu__about'),
+    const menuPromo = document.querySelector('.menu__promo'),
+          menuAbout = document.querySelector('.menu__about'),
           menuServices = document.querySelector('.menu__services'),
           menuMasters = document.querySelector('.menu__masters'),
           menuGallery = document.querySelector('.menu__gallery'),
@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuLink = document.querySelectorAll('.menu__link');
 
     function removeMenues () {
+        menuPromo.classList.remove('show');
         menuAbout.classList.remove('show');
         menuServices.classList.remove('show');
         menuMasters.classList.remove('show');
@@ -73,6 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     burger.forEach(item => {
         item.addEventListener('click', (e) => {
+            if (item.classList.contains('hamburger__promo')) {
+                menuPromo.classList.toggle('show');
+                item.classList.toggle('active');
+                backdrop.classList.toggle('active');
+            }
             if (item.classList.contains('hamburger__about')) {
                 menuAbout.classList.toggle('show');
                 item.classList.toggle('active');
